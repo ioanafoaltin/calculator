@@ -1,0 +1,12 @@
+[Oo]bj
+[Bb]in
+*.suo
+*.[Cc]ache
+[Tt]humbs.db
+Debug
+Release
+AnyCpu
+*.opensdf
+*.sdf
+tr.exe.stackdump
+*.tmp_proj
