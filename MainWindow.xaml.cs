@@ -97,8 +97,18 @@ namespace Calculator_Nou
             rezultat.Text = float.Parse("0").ToString();
         }
 
+        private void butonSterge_Click(object sender, RoutedEventArgs e)
+        {
+            if (rezultat.Text != "")
+            {
+                rezultat.Text = rezultat.Text.Substring(0, rezultat.Text.Length - 1);
+            }
+        }
+
         #endregion ClickPeButoaneCuCifre
 
+
+        #region ClickPentruButoaneCuOperatoriSiEgal
         //egal
         private void butonEgal_Click(object sender, RoutedEventArgs e)
         {
@@ -129,7 +139,7 @@ namespace Calculator_Nou
             if (rezultat.Text != "")
             {
                 _a = float.Parse(rezultat.Text);
-                rezultat.Text = ""; //nu prea inteleg care e faza aici
+                rezultat.Text = ""; 
             }
         }
 
@@ -162,16 +172,24 @@ namespace Calculator_Nou
                 rezultat.Text = "";
             }
         }
+        #endregion ClickPentruButoaneCuOperatoriSiEgal
 
+        #region ButoaneleMergSiDeLaTastatura
         //butoanele merg si de la tastatura
         public void Window_KeyDowe(object sender, KeyEventArgs e)
         {
+            // egal
             if (e.Key == Key.OemPlus)
+            {
+                butonEgal_Click(null, null);
+            }
+
+            if (e.Key == Key.Add)
             {
                 butonPlus_Click(null, null);
             }
 
-            if (e.Key == Key.OemMinus)
+            if (e.Key == Key.Subtract)
             {
                 butonMinus_Click(null, null);
             }
@@ -236,6 +254,6 @@ namespace Calculator_Nou
                 butonNoua_Click(null, null);
             }
         }
-
+        #endregion ButoaneleMergSiDeLaTastatura
     }
 }
